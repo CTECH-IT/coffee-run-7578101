@@ -1,4 +1,13 @@
 // Put your JavaScript here
+(function(window) {
+    'use strict';
+    let App = window.App;
+    let Truck = App.truck;
+    let DataStore = App.DataStore;
+    let myTruck = new Truck('12345', new DataStore());
+
+})(window);
+
 (function (window) {
     'use strict';
     let App = window.App || {};
@@ -8,6 +17,18 @@
     
     DataStore.prototype.add = function (key, val) {
         this.data[key] = val;
+    };
+
+    DataStore.prototype.get = function (key) {
+        return this.data[key];
+    };
+
+    DataStore.prototype.getAll = function () {
+        return this.data;
+    };
+
+    DataStore.prototype.remove = function (key) {
+        delete this.data[key];
     };
 
     App.DataStore = DataStore;

@@ -11,6 +11,12 @@
             throw new Error('Could not find element with selector: ' + selector);
         }
     }
+
+    CheckList.prototype.addRow = function (coffeeOrder) {
+        var rowElement = new Row (coffeeOrder);
+        this.$element.append(rowElement.$element);
+    };
+
     function Row(coffeeOrder) {
         let $div = $('<div></div>', {
             'data-coffee-order': 'checkbox',
@@ -21,6 +27,19 @@
             type: 'checkbox',
             value: coffeeOrder.emailAddress
         });
+        let description = coffeeOrder.size + ' ';
+        if (coffeeOrder.flavor) {
+            description += coffeeOrder.flavor + ' ';
+        }
+        description += coffeeOrder.coffee + ', ';
+        description += ' (' + coffeeOrder.emailAddress + ')';
+        description += ' [' + coffeeOrder.strength + 'x]';
+
+        $label.append($checkbox);
+        $label.append(description);
+        $div.append($label);
+
+        this.$element = $div;
     }
     App.CheckList = CheckList;
     window.App = App;

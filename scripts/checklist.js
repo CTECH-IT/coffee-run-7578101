@@ -12,7 +12,15 @@
         }
     }
 
+    CheckList.prototype.removeRow = function (email) {
+        this.$element
+        .find('[value="' + email + '"]')
+        .closest('[data-coffee-order="checkbox"]')
+        .remove();
+    };
+
     CheckList.prototype.addRow = function (coffeeOrder) {
+        this.removeRow(coffee0rder.emailAddress);
         var rowElement = new Row (coffeeOrder);
         this.$element.append(rowElement.$element);
     };

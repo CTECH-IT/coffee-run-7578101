@@ -12,6 +12,7 @@
 
     let myTruck = new Truck('12345', new DataStore());
     let checkList = new CheckList(CHECKLIST_SELECTOR);
+    
     window.myTruck = myTruck;
 
     formHandler.addSubmitHandler(function (data) {

@@ -12,6 +12,14 @@
         }
     }
 
+    CheckList.prototype.addClickHandler = function (func) {
+        this.$element.on('click', 'input', function (event) {
+            var email = event.target.value;
+            this.removeRow(email);
+            func(email);
+        }.bind(this));
+    };
+
     CheckList.prototype.removeRow = function (email) {
         this.$element
         .find('[value="' + email + '"]')

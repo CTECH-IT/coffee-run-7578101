@@ -26,6 +26,13 @@
             this.elements[0].focus();
         });
     }
+    FormHandler.prototype.addInputHandler = function (func) {
+        console.log('Setting input handler for form');
+        this.$formElement.on('input', '[name="emailAddress"]', function (event) {
+            let emailAddress = event.target.value;
+            console.log(func(emailAddress));
+        });
+    };
     App.FormHandler = FormHandler;
     window.App = App;
 })(window);

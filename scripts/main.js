@@ -6,10 +6,13 @@
     let App = window.App;
     let Truck = App.truck;
     let DataStore = App.DataStore;
+    let RemoteDataStore = App.RemoteDataStore;
     let FormHandler = App.FormHandler;
     let formHandler = new FormHandler(FORM_SELECTOR);
     let CheckList = App.CheckList;
     let Validation = App.Validation;
+
+    const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
 
     let myTruck = new Truck('12345', new DataStore());
     let checkList = new CheckList(CHECKLIST_SELECTOR);

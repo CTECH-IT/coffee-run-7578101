@@ -1,1 +1,4 @@
 /* Put your CSS here */
+form :invalid {
+    border-color: #a94442;
+}

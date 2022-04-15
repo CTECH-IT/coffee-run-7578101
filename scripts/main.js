@@ -14,7 +14,9 @@
 
     const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
 
-    let myTruck = new Truck('12345', new DataStore());
+    let remoteDS = new RemoteDataStore(SERVER_URL);
+
+    let myTruck = new Truck('12345', remoteDS);
     let checkList = new CheckList(CHECKLIST_SELECTOR);
 
     checkList.addClickHandler(myTruck.deliverOrder.bind(myTruck));
